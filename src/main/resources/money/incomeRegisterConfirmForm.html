@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>収支登録確認</title>
+</head>
+<body>
+            <h2>収入/支出登録</h2>
+<h3>入力内容確認</h3>
+                    <form id="incomeForm" th:action="@{/income/register/do}" th:object="${incomeRegisterForm}" method="post">
+                        <table style="table-layout:fixed;">
+                            <tbody>
+                            <tr>
+                                <td th:text="タイトル"></td>
+                                <td th:text="*{title}"></td>
+                            </tr>
+                            <tr>
+                                <td  th:text="お金が動いた日"></td>
+                                <td  th:utext="*{date}"></td>
+                            </tr>
+                            <tr>
+                                <td  th:text="金額"></td>
+                                <td  th:utext="*{value}"></td>
+                            </tr>
+                            <tr>
+                                <td  th:text="カテゴリ"></td>
+                                <td  th:text="*{category}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                                <input type="submit" name="registerBack" value="戻る"/>
+                                <input type="submit" name="register" value="登録"/>
+
+                        <input type="hidden" name="title" id="title" th:value="*{title}"/>
+                        <input type="hidden" name="date" id="date" th:value="*{date}"/>
+                        <input type="hidden" name="value" id="value" th:value="*{value}"/>
+                        <input type="hidden" name="category" id="category" th:value="*{category}"/>
+                    </form>
+</body>
+</html>

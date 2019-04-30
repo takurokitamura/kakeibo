@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ユーザー登録</title>
+</head>
+<body>
+            <h2>新規アカウント登録</h2>
+                            <h3>アカウント情報入力</h3>
+                            <form id="accountForm" th:action="@{/account/register/confirm}" th:object="${accountRegisterForm}" method="post">
+                                <fieldset id="account_field">
+                                    <div>
+                                        <label>アカウントID
+                                            <input  type="text" maxlength="15" th:field="*{accountId}" name="accountId" required placeholder="アカウントIDを入力してください"/>
+                                        </label><br/>
+                                        <small id="accountidhelp">アカウントIDは3文字以上、15文字以下かつ、半角英数字で入力してください。</small>
+                                        <span  th:if="${#fields.hasErrors('accountId')}" th:errors="*{accountId}">エラー</span>
+                                    </div>
+                                    <div>
+                                        <label>氏名
+                                            <input type="text" maxlength="45" th:field="*{name}" name="name" required placeholder="氏名を入力してください"/>
+                                        </label><br/>
+                                        <span  th:if="${#fields.hasErrors('name')}" th:errors="*{name}">エラー</span>
+                                    </div>
+                                    <div>
+                                        <label >パスワード
+                                            <input   type="password" maxlength="50" th:field="*{password}" name="password" required placeholder="パスワードを入力してください"/>
+                                        </label><br/>
+                                        <small id="passwordhelp">パスワードは5文字以上、15文字以下かつ、半角の英小文字、英大文字、数字を1種類ずつ含めて入力してください。</small>
+                                        <span  th:if="${#fields.hasErrors('password')}" th:errors="*{password}">エラー</span>
+                                        <p  th:if="${#fields.hasErrors('passwordValid')}" th:errors="*{passwordValid}">エラー</p>
+                                    </div>
+                                    <div>
+                                        <label>パスワード確認
+                                            <input type="password" maxlength="50" th:field="*{confirmPassword}" name="confirmPassword" required placeholder="確認のため、もう一度パスワードを入力してください"/>
+                                        </label><br/>
+                                        </div>
+                                        <input type="submit" value="確認画面へ" />
+                                </fieldset>
+                            </form>
+    </body>
+</html>

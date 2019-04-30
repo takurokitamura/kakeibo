@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>トップ</title>
+</head>
+<body style="background-color:#66CCFF">
+
+                    <span>家計簿</span>
+                <div>
+                        <a href="/income/register/init">今日の収入/支出を登録しよう</a>
+                    </div>
+                    <div>
+                        <a href="/category/register/init">収入/支出のカテゴリを追加しよう </a>
+                    </div>
+
+                    <hr>
+                    <h3>収支一覧</h3>
+            <div  th:if="!${#lists.isEmpty(list)}">
+                        <div th:each="income : ${list}">
+                            <div>
+                                <p th:text="${income.title}"></p>
+                                <p th:text="'\:' + ${income.value}"></p>
+                                <p th:text="'カテゴリ:' + ${income.category}"></p>
+                                <p th:text="'登録日:' + ${income.date}"></p>
+                            </div>
+                        </div>
+                    </div>
+</body>
+</html>

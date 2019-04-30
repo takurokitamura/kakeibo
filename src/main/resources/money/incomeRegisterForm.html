@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>収支登録</title>
+</head>
+<body>
+            <h2>収支登録</h2>
+                    <h3>タイトル入力</h3>
+                   <form id="incomeForm" th:action="@{/income/register/confirm}" th:object="${incomeRegisterForm}" method="post">
+                        <div th:if="${#fields.hasGlobalErrors()}">
+                            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">共通エラーメッセージ表示エリア</p>
+                        </div>
+                        <fieldset id="income_field">
+                            <div>
+                                <label>タイトル
+                                    <input type="text" th:field="*{title}" name="title" required placeholder="収入もしくは支出を入力してください"/>
+                                </label><br/>
+                                <small id="titlehelp">45文字以内で入力してください。</small>
+                                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">error!</span>
+                            </div>
+
+                                    <div>
+                                        <label>お金が動いた日
+                                            <input type="text"  th:field="*{date}" name="date"/>
+                                        </label><br/>
+                                        <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">error!</span>
+                                    </div>
+
+                            <div>
+                                <label>金額
+                                    <input type="text"  th:field="*{value}" name="value" required placeholder="金額を半角数字で入力して下さい"/>
+                                </label><br/>
+                                <small id="incomehelp">半角英数字で入力してください。</small>
+                                <span th:if="${#fields.hasErrors('value')}" th:errors="*{value}">error!</span>
+                            </div>
+
+                            <div>
+                                          <label for="category">カテゴリ</label><br/>
+                                        <select  id="category" th:field="*{category}">
+                                            <option th:each="entry : ${accountList.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
+                                        </select>
+                                        <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}">error!</span>
+                            </div>
+
+                            <div>
+                                <input type="submit" value="確認画面へ" />
+                            </div>
+                        </fieldset>
+                    </form>
+</body>
+</html>
