@@ -1,34 +1,19 @@
-package com.example.demo.form;
-
-import org.hibernate.validator.constraints.NotBlank;
+package main.java.com.example.demo.form;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-/**
- * アカウント登録フォーム。
- */
+
 public class AccountRegisterForm implements Serializable {
 
-    @NotBlank
     @Size(min = 3, max = 15, message = "{error.size.min.max}")
     private String accountId;
 
-    @NotBlank
     private String password;
 
-    @NotBlank
     private String confirmPassword;
 
-    @NotBlank
     @Size(max = 45, message = "{error.size.max}")
     private String name;
-
-
-    @NotBlank
-    @Size(max = 255, message = "{error.size.max}")
-    private String selfIntroduction;
-
-
 
     public String getAccountId() {
         return accountId;
@@ -61,13 +46,5 @@ public class AccountRegisterForm implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-
-    public String getSelfIntroduction() {
-        return selfIntroduction;
-    }
-
-    public void setSelfIntroduction(String selfIntroduction) {
-        this.selfIntroduction = selfIntroduction;
-    }
 }
+
