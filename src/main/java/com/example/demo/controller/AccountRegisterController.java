@@ -27,7 +27,7 @@ public class AccountRegisterController {
         return "accountRegisterConfirmForm";
     }
 
-    @RequestMapping(value = "/do", params = "register", method = RequestMethod.POST)
+    @RequestMapping(value = "/do", method = RequestMethod.POST)
     public String kanryo(@ModelAttribute AccountRegisterForm accountRegisterForm) {
         service.touroku(accountRegisterForm);
         return "accountRegisterCompleteForm";
