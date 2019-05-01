@@ -1,16 +1,12 @@
 package com.example.demo.form;
-
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 public class AccountRegisterForm implements Serializable {
 
-    @Size(min = 3, max = 15, message = "{error.size.min.max}")
     private String accountId;
 
     private String password;
 
-    @Size(max = 45, message = "{error.size.max}")
     private String name;
 
     public String getAccountId() {
