@@ -27,15 +27,8 @@
                                             <input   type="password" maxlength="50" th:field="*{password}" name="password" required placeholder="パスワードを入力してください"/>
                                         </label><br/>
                                         <small id="passwordhelp">パスワードは5文字以上、15文字以下かつ、半角の英小文字、英大文字、数字を1種類ずつ含めて入力してください。</small>
-                                        <span  th:if="${#fields.hasErrors('password')}" th:errors="*{password}">エラー</span>
-                                        <p  th:if="${#fields.hasErrors('passwordValid')}" th:errors="*{passwordValid}">エラー</p>
                                     </div>
-                                    <div>
-                                        <label>パスワード確認
-                                            <input type="password" maxlength="50" th:field="*{confirmPassword}" name="confirmPassword" required placeholder="確認のため、もう一度パスワードを入力してください"/>
-                                        </label><br/>
-                                        </div>
-                                        <input type="submit" value="確認画面へ" />
+                                      <input type="submit" value="確認画面へ" />
                                 </fieldset>
                             </form>
     </body>

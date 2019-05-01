@@ -1,36 +1,35 @@
-package main.java.com.example.demo.controller;
-
-import main.java.com.example.demo.entity.Account;
-import main.java.com.example.demo.entity.AccountRepository;
+package com.example.demo.controller;
+import com.example.demo.form.AccountRegisterForm;
+import com.example.demo.service.AccountRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.transaction.Transactional;
 
 @Controller
+@RequestMapping(value = "/account/register")
 public class AccountRegisterController {
-    @Autowired
-    AccountRepository repository;
+    private  AccountRegisterService service;
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    @Transactional
-    public ModelAndView form(
-            @ModelAttribute("accountRegisterForm") Account account,
-            ModelAndView mav) {
-        repository.save(account);
-        return new ModelAndView("account/accountRegisterForm");
+    @Autowired
+    public AccountRegisterController(AccountRegisterService accountRegisterService) {
+        this.service = accountRegisterService;
+    }
+
+    @RequestMapping(value = "/init")
+    public String init(@ModelAttribute AccountRegisterForm accountRegisterForm) {
+        return "accountRegisterForm";
+    }
+
+    @RequestMapping(value = "/confirm", method = RequestMethod.POST)
+    public String kakunin(@ModelAttribute AccountRegisterForm accountRegisterForm) {
+        return "accountRegisterConfirmForm";
     }
 
     @RequestMapping(value = "/do", params = "register", method = RequestMethod.POST)
-    String registerComplete(@ModelAttribute main.java.com.example.demo.form.AccountRegisterForm accountRegisterForm) {
-        Account account = new Account();
-        account.setAccountId(accountRegisterForm.getAccountId());
-        account.setName(accountRegisterForm.getName());
-        repository.save(account);
-        return "account/accountRegisterCompleteForm";
+    public String kanryo(@ModelAttribute AccountRegisterForm accountRegisterForm) {
+        service.touroku(accountRegisterForm);
+        return "accountRegisterCompleteForm";
     }
 }
