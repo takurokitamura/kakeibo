@@ -11,21 +11,19 @@
                                 <fieldset id="account_field">
                                     <div>
                                         <label>アカウントID
-                                            <input  type="text" maxlength="15" th:field="*{accountId}" name="accountId" required placeholder="アカウントIDを入力してください"/>
+                                            <input  type="text" th:field="*{accountId}" name="accountId" required placeholder="アカウントIDを入力してください"/>
                                         </label><br/>
-                                        <small>アカウントIDは3文字以上、15文字以下かつ、半角英数字で入力してください。</small>
                                     </div>
                                     <div>
                                         <label>氏名
-                                            <input type="text" maxlength="45" th:field="*{name}" name="name" required placeholder="氏名を入力してください"/>
+                                            <input type="text" th:field="*{name}" name="name" required placeholder="氏名を入力してください"/>
                                         </label><br/>
                                     </div>
                                     <div>
                                         <label >パスワード
-                                            <input   type="password" maxlength="50" th:field="*{password}" name="password" required placeholder="パスワードを入力してください"/>
+                                            <input   type="password"  th:field="*{password}" name="password" required placeholder="パスワードを入力してください"/>
                                         </label><br/>
-                                        <small>パスワードは5文字以上、15文字以下かつ、半角の英小文字、英大文字、数字を1種類ずつ含めて入力してください。</small>
-                                    </div>
+                                                  </div>
                                       <input type="submit" value="確認画面へ" />
                                 </fieldset>
                             </form>

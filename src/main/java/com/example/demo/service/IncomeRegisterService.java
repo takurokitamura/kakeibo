@@ -5,8 +5,8 @@ import com.example.demo.form.IncomeRegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-    @Service
+import java.util.List;
+@Service
     public class IncomeRegisterService {
 
         private final IncomeRepository incomeRepository;
@@ -25,4 +25,8 @@ import org.springframework.transaction.annotation.Transactional;
             income.setDate(incomeRegisterForm.getDate());
             incomeRepository.save(income);
         }
+
+    public List<Income> findAllIncome() {
+        return incomeRepository.findAll();
+    }
     }

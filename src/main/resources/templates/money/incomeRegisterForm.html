@@ -8,7 +8,7 @@
             <h2>収支登録</h2>
                     <h3>タイトル入力</h3>
                    <form id="incomeForm" th:action="@{/income/register/confirm}" th:object="${incomeRegisterForm}" method="post">
-                          <fieldset id="income_field">
+                          <fieldset>
                             <div>
                                 <label>タイトル
                                     <input type="text" th:field="*{title}" name="title" required placeholder="収入もしくは支出を入力してください"/>
@@ -25,13 +25,13 @@
                                 <label>金額
                                     <input type="text"  th:field="*{value}" name="value" required placeholder="金額を半角数字で入力して下さい"/>
                                 </label><br/>
-                                <small id="incomehelp">半角英数字で入力してください。</small>
+                                <small>半角英数字で入力してください。</small>
                             </div>
 
                             <div>
                                           <label for="category">カテゴリ</label><br/>
                                         <select  id="category" th:field="*{category}">
-                                            <option th:each="entry : ${accountList.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
+                                            <option th:each="entry : ${categoryList.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
                                         </select>
                             </div>
 
