@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/templates/account/register")
+@RequestMapping(value = "/account/register")
 public class AccountRegisterController {
     private  AccountRegisterService service;
 
@@ -19,17 +19,17 @@ public class AccountRegisterController {
 
     @RequestMapping(value = "/init")
     public String init(@ModelAttribute AccountRegisterForm accountRegisterForm) {
-        return "templates/account/accountRegisterForm";
+        return "account/accountRegisterForm";
     }
 
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     public String kakunin(@ModelAttribute AccountRegisterForm accountRegisterForm) {
-        return "templates/account/accountRegisterConfirmForm";
+        return "account/accountRegisterConfirmForm";
     }
 
     @RequestMapping(value = "/do", method = RequestMethod.POST)
     public String kanryo(@ModelAttribute AccountRegisterForm accountRegisterForm) {
         service.touroku(accountRegisterForm);
-        return "templates/account/accountRegisterCompleteForm";
+        return "account/accountRegisterCompleteForm";
     }
 }
