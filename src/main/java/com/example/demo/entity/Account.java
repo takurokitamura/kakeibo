@@ -1,19 +1,16 @@
 package com.example.demo.entity;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 @Entity
 @Table(name = "accounts")
-public class Account{
+public class Account {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "account_id", nullable = false)
+    @Column(name = "accountId", nullable = false)
     private String accountId;
 
     @Column(name = "password", nullable = false)

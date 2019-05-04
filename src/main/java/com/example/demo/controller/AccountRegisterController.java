@@ -1,4 +1,6 @@
 package com.example.demo.controller;
+
+import com.example.demo.entity.Account;
 import com.example.demo.form.AccountRegisterForm;
 import com.example.demo.service.AccountRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,15 @@ public class AccountRegisterController {
         return "account/accountRegisterConfirmForm";
     }
 
-    @RequestMapping(value = "/do", method = RequestMethod.POST)
+    @RequestMapping(value = "/do", params = "register",method = RequestMethod.POST)
     public String kanryo(@ModelAttribute AccountRegisterForm accountRegisterForm) {
-        service.touroku(accountRegisterForm);
+        Account account = service.createAccount(accountRegisterForm);
+        service.touroku(account);
         return "account/accountRegisterCompleteForm";
+    }
+
+    @RequestMapping(value = "/do", params = "registerBack", method = RequestMethod.POST)
+    public String modoru(@ModelAttribute AccountRegisterForm accountRegisterForm) {
+        return "account/accountRegisterForm";
     }
 }

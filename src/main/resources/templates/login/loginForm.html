@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:color="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>ログイン</title>
 </head>
-<body style="background-color:#66CCFF">
-<div  style= font-size: 10px, color: blue;>
+<body>
+<div>
             <div>
                 <h1>家計簿アプリ</h1>
                 <hr>
@@ -13,26 +13,25 @@
                     <strong>家計簿をつけましょう</strong>
                 </p>
             </div>
-                    <div>
-                        <h3>Login</h3>
-                    </div>
-                        <!--<form id="login_form" method="post" th:action="@{'/login'}">-->
-                            <!--<div>-->
-                                <!--<label >アカウントID-->
-                                    <!--<input type="text"  name="accountId" placeholder="アカウントID:" autofocus required/>-->
-                                <!--</label>-->
-                            <!--</div>-->
-                                <!--<label >パスワード-->
-                                    <!--<input type="password"  name="password" placeholder="パスワード: " required />-->
-                                <!--</label>-->
-                                <!--<br>-->
-                                <!--<input id="login" type="submit" value="ログイン"/>-->
-                                <!--<br/>-->
-                        <!--</form>-->
+                <h3>Login</h3>
+
+                        <form id="login_form" method="post" th:action="@{'/login'}">
+                            <div>
+                                <label >アカウントID
+                                    <input type="text"  name="accountId" placeholder="アカウントID:" autofocus required/>
+                                </label>
+                            </div>
+                                <label >パスワード
+                                    <input type="password"  name="password" placeholder="パスワード: " required />
+                                </label>
+                                <br>
+                                <input id="login" type="submit" value="ログイン"/>
+                                <br/>
+                        </form>
                         <form id="account_form" method="post" th:action="@{'/account/register/init'}">
                             <input id="accountRegister" type="submit" value="新規アカウント作成" />
                         </form>
-                    <!--</div>-->
+                    </div>
                 </div>
 </body>
 </html>

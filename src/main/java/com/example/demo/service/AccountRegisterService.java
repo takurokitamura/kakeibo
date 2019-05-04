@@ -14,11 +14,15 @@ import javax.transaction.Transactional;
             this.accountRepository = accountRepository;
         }
         @Transactional
-        public void touroku(AccountRegisterForm accountRegisterForm) {
-            Account account = new Account();
-            account.setAccountId(accountRegisterForm.getAccountId());
-            account.setPassword(accountRegisterForm.getPassword());
-            account.setName(accountRegisterForm.getName());
+        public void touroku(Account account) {
+            account.setAccountId(account.getAccountId());
             accountRepository.save(account);
+        }
+        public Account createAccount(AccountRegisterForm accountRegisterForm) {
+            Account account = new Account();
+            account.setName(accountRegisterForm.getName());
+            account.setPassword(accountRegisterForm.getPassword());
+            account.setAccountId(accountRegisterForm.getAccountId());
+            return account;
         }
     }

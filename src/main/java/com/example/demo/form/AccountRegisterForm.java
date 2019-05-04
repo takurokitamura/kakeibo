@@ -1,7 +1,6 @@
 package com.example.demo.form;
-import java.io.Serializable;
 
-public class AccountRegisterForm implements Serializable {
+public class AccountRegisterForm{
 
     private String accountId;
 
