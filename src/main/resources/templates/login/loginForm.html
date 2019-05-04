@@ -16,27 +16,23 @@
                     <div>
                         <h3>Login</h3>
                     </div>
-                    <div th:if="${param.error}">
-                        アカウントID、またはパスワードが誤っています。
-                    </div>
-                    <div>
-                        <form id="login_form" method="post" th:action="@{'/login'}">
-                            <div>
-                                <label >アカウントID
-                                    <input type="text"  name="login_id" placeholder="アカウントID:" autofocus required/>
-                                </label>
-                            </div>
-                                <label >パスワード
-                                    <input type="password"  name="login_password" placeholder="パスワード: " required />
-                                </label>
-                                <br>
-                                <input id="login" type="submit" value="ログイン"/>
-                                <br/>
-                        </form>
+                        <!--<form id="login_form" method="post" th:action="@{'/login'}">-->
+                            <!--<div>-->
+                                <!--<label >アカウントID-->
+                                    <!--<input type="text"  name="accountId" placeholder="アカウントID:" autofocus required/>-->
+                                <!--</label>-->
+                            <!--</div>-->
+                                <!--<label >パスワード-->
+                                    <!--<input type="password"  name="password" placeholder="パスワード: " required />-->
+                                <!--</label>-->
+                                <!--<br>-->
+                                <!--<input id="login" type="submit" value="ログイン"/>-->
+                                <!--<br/>-->
+                        <!--</form>-->
                         <form id="account_form" method="post" th:action="@{'/account/register/init'}">
                             <input id="accountRegister" type="submit" value="新規アカウント作成" />
                         </form>
-                    </div>
+                    <!--</div>-->
                 </div>
 </body>
 </html>

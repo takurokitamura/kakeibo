@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>収支削除確認</title>
+</head>
+<body>
+                    <h3>収支削除の確認</h3>
+                    本当に削除してよろしいでしょうか。削除する場合は、削除ボタンを押してください。<br />
+                    <form id="accountForm" th:action="@{/income/delete/do}" method="post">
+                        <input type="hidden" name="incomeId" id="incomeId" th:value="${incomeId}"/>
+                            <input type="submit" value="削除"/>
+                    </form>
+</body>
+</html>
