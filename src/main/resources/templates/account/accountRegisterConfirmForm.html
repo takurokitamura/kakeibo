@@ -10,12 +10,12 @@
                             <form id="accountForm" th:action="@{/account/register/do}" th:object="${accountRegisterForm}" method="post">
                                 <fieldset id="account_field">
                                         <label>アカウントID</label><br/>
-                                        <span th:text="*{accountId}"></span>
+                                        <span th:text="*{accountid}"></span>
                                     <div>
                                         <label>氏名</label><br/>
                                         <span th:text="*{name}"></span>
                                     </div>
-                                    <input type="hidden" name="accountId" id="accountId" th:value="*{accountId}"/>
+                                    <input type="hidden" name="accountid" id="accountid" th:value="*{accountid}"/>
                                     <input type="hidden" name="name" id="name" th:value="*{name}"/>
                                     <input type="hidden" name="password" id="password" th:value="*{password}"/>
 

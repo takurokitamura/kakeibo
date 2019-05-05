@@ -9,20 +9,18 @@
             <div>
                 <h1>家計簿アプリ</h1>
                 <hr>
-                <p>
                     <strong>家計簿をつけましょう</strong>
-                </p>
             </div>
                 <h3>Login</h3>
 
                         <form id="login_form" method="post" th:action="@{'/login'}">
                             <div>
                                 <label >アカウントID
-                                    <input type="text"  name="accountId" placeholder="アカウントID:" autofocus required/>
+                                    <input type="text"  id= "accountid" name="accountid" placeholder="アカウントID:" autofocus required/>
                                 </label>
                             </div>
                                 <label >パスワード
-                                    <input type="password"  name="password" placeholder="パスワード: " required />
+                                    <input type="password" id="password" name="password" placeholder="パスワード: " required />
                                 </label>
                                 <br>
                                 <input id="login" type="submit" value="ログイン"/>

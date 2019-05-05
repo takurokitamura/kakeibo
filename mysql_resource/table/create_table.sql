@@ -3,8 +3,8 @@ USE kakeibo
 
 CREATE TABLE `accounts` (
 `id` int(11) NOT NULL,AUTO_INCREMENT,
-`accountId` varchar(45) NOT NULL,
-`password` varchar(45) NOT NULL,
+`accountid` varchar(45) NOT NULL,
+`password` char(60) NOT NULL,
 `name` varchar(45) NOT NULL,
 PRIMARY KEY (`id`)
 )

@@ -2,18 +2,18 @@ package com.example.demo.form;
 
 public class AccountRegisterForm{
 
-    private String accountId;
+    private String accountid;
 
     private String password;
 
     private String name;
 
-    public String getAccountId() {
-        return accountId;
+    public String getAccountid() {
+        return accountid;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setAccountid(String accountid) {
+        this.accountid = accountid;
     }
 
     public String getPassword() {

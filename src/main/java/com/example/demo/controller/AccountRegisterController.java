@@ -32,7 +32,7 @@ public class AccountRegisterController {
     @RequestMapping(value = "/do", params = "register",method = RequestMethod.POST)
     public String kanryo(@ModelAttribute AccountRegisterForm accountRegisterForm) {
         Account account = service.createAccount(accountRegisterForm);
-        service.touroku(account);
+        service.touroku(account,accountRegisterForm.getPassword());
         return "account/accountRegisterCompleteForm";
     }
 
