@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>アカウント検索</title>
+</head>
+<body>
+     <h2 class="text-center pb-4">アカウント検索</h2>
+            <!--検索条件-->
+                   <h3 class="mb-0">検索条件</h3>
+                  <form id="searchForm" th:action="@{/account/search/do}" th:object="${accountSearchForm}" method="post">
+                        <div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+                            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">共通エラーメッセージ表示エリア</p>
+                        </div>
+                        <fieldset id="account_field">
+                            <div class="form-group" th:classappend="${#fields.hasErrors('accountid')}? 'has-error'">
+                                <label for="accountid">アカウントID</label><br/>
+                                <input class="form-control" id="accountid" type="text" maxlength="15" th:field="*{accountid}" name="accountid" placeholder="アカウントIDを入力してください"/>
+                                <span class="text-danger" th:if="${#fields.hasErrors('accountid')}" th:errors="*{accountid}">error!</span>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+                                <label for="name">氏名</label><br/>
+                                <input class="form-control" id="name" type="text" maxlength="45" th:field="*{name}" name="name" placeholder="氏名を入力してください"/>
+                                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error!</span>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
+                                <label for="password">Password</label><br/>
+                                <input class="form-control" id="password" type="text" maxlength="50" th:field="*{password}" name="password" placeholder="メールアドレスを入力してください"/>
+                                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">error!</span>
+                            </div>
+                        </fieldset>
+                        <div class="col text-center">
+                            <div class="btn-group">
+                                <input type="submit" name="search" value="検索" class="btn bg-custom3 btn-lg text-white "/>
+                            </div>
+                            <div class="btn-group">
+                                <input class="btn btn-secondary btn-lg clearForm" type="button" value="条件クリア">
+                            </div>
+                        </div>
+                    </form>
+
+          <!--結果の表示-->
+            <div th:if="!${#lists.isEmpty(list)}">
+                <div class="col-xs-6 col-md-3 account-profile" th:each="account : ${list}">
+                    <div class="img-thumbnail">
+                        <img th:src="@{/image/profile(id=${account.id})}" class="rounded">
+                        <div class="figure-caption">
+                            <span class="badge badge-info">氏名</span>
+                            <h4 th:text="${account.name}"></h4>
+                            <span class="badge badge-info">アカウントID</span>
+                            <p th:text="${account.accountid}"></p>
+                            <span class="badge badge-info">Password</span>
+                            <p th:text="${account.password}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
