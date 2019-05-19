@@ -31,7 +31,7 @@
                             <div>
                                           <label for="category">カテゴリ</label><br/>
                                         <select  id="category" th:field="*{category}">
-                                            <option th:each="entry : ${categoryList.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
+                                            <option th:each="entry : ${allcategory}" th:value="${entry.value}" th:text="${entry.value}"></option>
                                         </select>
                             </div>
 

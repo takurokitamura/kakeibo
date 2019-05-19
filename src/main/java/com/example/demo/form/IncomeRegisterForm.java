@@ -4,11 +4,11 @@ public class IncomeRegisterForm {
 
         private String title;
 
-        private int value;
+        private String value;
 
         private String category;
 
-        private int date;
+        private String date;
 
     public String getTitle() {
         return title;
@@ -18,11 +18,11 @@ public class IncomeRegisterForm {
         this.title = title;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
@@ -34,11 +34,11 @@ public class IncomeRegisterForm {
         this.category = category;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

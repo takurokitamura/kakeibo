@@ -19,14 +19,13 @@ import javax.persistence.Table;
         private String title;
 
         @Column(name = "value", nullable = false)
-        private int value;
+        private String value;
+
+        @Column(name = "date", nullable = false)
+        private String date;
 
         @Column(name = "category", nullable = false)
         private String category;
-
-
-        @Column(name = "date", nullable = false)
-        private int date;
 
         public int getId() {
             return id;
@@ -44,11 +43,11 @@ import javax.persistence.Table;
             this.title = title;
         }
 
-        public int getValue() {
+        public String getValue() {
             return value;
         }
 
-        public void setValue(int value) {
+        public void setValue(String value) {
             this.value = value;
         }
 
@@ -60,11 +59,11 @@ import javax.persistence.Table;
             this.category = category;
         }
 
-        public int getDate() {
+        public String getDate() {
             return date;
         }
 
-        public void setDate(int date) {
+        public void setDate(String date) {
             this.date = date;
         }
 
