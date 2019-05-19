@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>退会受付</title>
+</head>
+<body>
+            <h2 >退会受付</h2>
+                            <h3>退会の確認</h3>
+                            本当に退会してよろしいでしょうか。<br />
+                            退会を希望される方は、退会申込ボタンを押してください。
+                            <form id="accountForm" th:action="@{/account/unsubscribe/do}" method="post">
+                                    <input type="submit" value="退会"/>
+
+</body>
+</html>

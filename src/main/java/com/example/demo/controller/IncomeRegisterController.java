@@ -50,13 +50,21 @@ public class IncomeRegisterController {
 
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     public String Confirm(@ModelAttribute IncomeRegisterForm incomeRegisterForm) {
+        service.register(incomeRegisterForm);
+
+
         return "money/incomeRegisterConfirmForm";
     }
 
-    @RequestMapping(value = "/do", method = RequestMethod.POST)
+    @RequestMapping(value = "/do", params = "register", method = RequestMethod.POST)
     public String Complete(@ModelAttribute IncomeRegisterForm incomeRegisterForm, Model model) {
         service.register(incomeRegisterForm);
         model.addAttribute("complete","収支の登録が完了しました。");
         return "money/incomeRegisterCompleteForm";
+    }
+
+    @RequestMapping(value = "/do", params = "registerBack", method = RequestMethod.POST)
+    String registerBack(@ModelAttribute IncomeRegisterForm incomeRegisterForm) {
+        return "money/incomeRegisterForm";
     }
 }
